@@ -1,0 +1,57 @@
+# 문제번호 2557. Hello World 출력 
+public class Main {
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+	}
+}
+
+# 문제번호 10718, 10171 생략 (아래 10172번과 거의 동일)
+# 문제번호 10172. 개(?) 모양 출력
+public class Main {
+	public static void main(String[] args) {
+		System.out.println("|\\_/|");
+        System.out.println("|q p|   /}");
+        System.out.println("( 0 )\"\"\"\\");
+        System.out.println("|\"^\"`    |");
+        System.out.println("||_/=\\\\__|");
+	}
+}
+
+# 문제번호 1001, 1008, 10869, 10430 생략 (아래 1000번과 거의 동일)
+# 문제번호 1000. 두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+		int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
+        int a = n1 + n2;
+        System.out.println(a);
+	}
+}
+
+
+# 문제번호 2588. 세자리수의 곱셈 계산. (곱셈과정..? 까지 프린트)
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+		int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
+        
+        int a = (n2 % 10)*n1;
+        int b = ( (n2/10) % 10 )*n1;
+        int c = ( (n2/100 )% 10)*n1;
+      
+        int tot = n1*n2;
+        
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(tot);
+	}
+}
