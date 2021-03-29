@@ -19,7 +19,7 @@
     }
 ---
 >[문제번호 2292. 벌집](https://www.acmicpc.net/problem/2292)   
->손익분기점을 구하는방법.
+>벌집의 특정칸으로 가는데 얼마나 걸리는가?
 
     import java.util.*;
 
@@ -38,7 +38,7 @@
     }
 ---
 >[문제번호 1193. 분수찾기](https://www.acmicpc.net/problem/1193)   
->손익분기점을 구하는방법.
+>특정 패턴으로 반복되는 분수의 나열에서 n번째 분수 찾기
 
     import java.util.*;
 
@@ -60,7 +60,7 @@
     }
 ---
 >[문제번호 2869. 달팽이는 올라가고 싶다](https://www.acmicpc.net/problem/2869)   
->손익분기점을 구하는방법.
+>매일매일 올라가고 미끄러지기를 반복하는 달팽이는 몇일이 걸려야 정상에 도달할까?
 
     import java.io.*;
     class Main {
@@ -69,6 +69,31 @@
             String[] status = br.readLine().split(" ");		
             double count = (Integer.parseInt(status[2]) - Integer.parseInt(status[1])) / (double)(Integer.parseInt(status[0]) - Integer.parseInt(status[1])) ;
             System.out.println((int)Math.ceil(count));
+        }
+    }
+---
+>[문제번호 10250. ACM 호텔](https://www.acmicpc.net/problem/10250)   
+>호텔에 선착순으로 n번째 들어온 고객은 몇번방에 배정될까?
+
+    import java.util.Scanner;
+    class Main {
+        public static void main(String[] args){                    										
+            Scanner sc = new Scanner(System.in);
+            int T = sc.nextInt();
+            int H, W, N;
+            int Room = 0;
+            for (int i = 0; i < T; i++) {		
+                H = sc.nextInt();
+                W = sc.nextInt(); 
+                N = sc.nextInt(); 
+                if( N % H == 0) {
+                    Room = (H * 100) + (N / H);
+                    System.out.println(Room);
+                }else {
+                    Room = ((N % H) * 100) + ((N / H) + 1);
+                    System.out.println(Room);
+                }
+            }
         }
     }
 ---
