@@ -97,3 +97,33 @@
         }
     }
 ---
+>[문제번호 2775. 부녀회장이 될테야](https://www.acmicpc.net/problem/2775)   
+>계차수열을 사용하는 문제.
+
+    import java.util.Scanner;
+
+        class Main {
+            public static void main(String[] args){                    									
+                
+                Scanner sc = new Scanner(System.in);
+
+                int[][] arr = new int[15][14];
+                for (int i = 0; i < 14; i++) {			
+                    arr[0][i] = i+1;
+                }
+                for (int i =1; i <15; i++) {
+                    for (int j =0; j<14; j++) {
+                        for (int k =0; k <= j; k++ ) {
+                            arr[i][j] = arr[i][j] + arr[i-1][k];
+                        }
+                    }
+                }
+                int T = sc.nextInt();
+                for (int r = 0; r < T; r++) {
+                    int k = sc.nextInt();
+                    int n = sc.nextInt()-1;
+                    System.out.println(arr[k][n]);
+                }
+            }
+        }
+---
