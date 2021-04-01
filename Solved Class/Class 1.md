@@ -20,3 +20,30 @@
         } 
     }
 ---
+>[문제번호 2920. 정수 N개의 합](https://www.acmicpc.net/problem/2920)   
+>다장조는 c d e f g a b C, 총 8개 음으로 이루어져있다.<br>이 문제에서 8개 음은 다음과 같이 숫자로 바꾸어 표현한다. c는 1로, d는 2로, ..., C를 8로 바꾼다.<br>1부터 8까지 차례대로 연주한다면 ascending, 8부터 1까지 차례대로 연주한다면 descending, 둘 다 아니라면 mixed 이다.<br>연주한 순서가 주어졌을 때, 이것이 ascending인지, descending인지, 아니면 mixed인지 판별하는 프로그램을 작성하시오.
+
+>순서 판별하는 문제. 정렬이 아니라 문자가 정해져있기때문에 문자열로 받은뒤 맞는지 아닌지 단순 판별할수 있다.
+
+    import java.util.*;
+
+    public class Main {
+    
+        public static void main(String[] args) {
+    
+            Scanner sc = new Scanner(System.in);
+            int[] arr = new int[8];
+            int result = 0;
+            for(int i = 0; i < 8; i++) {
+                arr[i] = sc.nextInt();
+            }
+            for(int i = 1; i < 8; i++) {
+                if (arr[i] - arr[i-1] == -1) result--;
+                else if(arr[i] - arr[i-1] == 1) result++;
+            }
+            if (result == 7) System.out.println("ascending");
+            else if (result == -7) System.out.println("descending");
+            else System.out.println("mixed");
+        } 
+    }
+---
