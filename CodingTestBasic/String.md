@@ -45,11 +45,35 @@ public class String_charAt_01 {
 ```
 ---
 > indexof()와 substring()<br>
-> 
+> 앞에서부터 동일한 문자가 나올때까지 줄여서 동일한 문자가 나오면 해당 문자를 출력
 
-> 
+> str[] 의 첫번째([0]) 배열을 가지고 뒤에서 하나씩 줄여가며 teacher과 앞에서 세었을때 동일한 문자를 찾는 방법이다.
 ```JAVA
+public class String_charAt_01 {
 
+	public static void main(String[] args) {
+
+		String str[] = {"test", "teacher" };
+		
+		System.out.println(new String_charAt_01().solve(str));
+	}
+		public String solve(String[] strs) {
+			if (strs.length == 0)
+				return "";
+			
+			//1 test
+			String firstStr = strs[0];
+			
+			for (int i = 1; i < strs.length; i++) {
+				
+				while(strs[i].indexOf(firstStr)  != 0) {
+					
+					firstStr = firstStr.substring(0, firstStr.length() - 1 );	// test -> tes -> te
+				}
+			}
+			return firstStr;
+		}
+}
 
 
 ```
