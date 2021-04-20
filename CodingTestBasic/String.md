@@ -1,6 +1,6 @@
 ## 코딩테스트에서 사용되는 기법의 기본 - String
 
-> Reverse 와 charAt
+> Reverse 와 charAt<br>
 > 짝이 없는 괄호 제거
 
 > 짝이 안맞는 괄호를 제거하여 정상적인 괄호 여닫기 구조를 만드는 문제.
@@ -42,5 +42,15 @@ public class String_charAt_01 {
 		
 	}
 }
+```
+---
+> indexof()와 substring()<br>
+> 
+
+> 
+```JAVA
+
+
+
 ```
 ---
