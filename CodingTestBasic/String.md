@@ -74,7 +74,47 @@ public class String_charAt_01 {
 			return firstStr;
 		}
 }
-
-
 ```
 ---
+> Palindrome<br>
+> 좌우로 가장 길게 대칭되는 문자열을 구하는문제
+
+> 앞으로 읽어도 거꾸로 읽어도 똑같은 문자열중에서 가장 긴 문자열을 찾는 문제. 첫번째 문자열을 기준으로 앞, 뒤로 체크하며 가장 길었던 문구를 리턴해준다.
+```JAVA
+public class String_charAt_01 {
+
+	public static void main(String[] args) {
+
+		String_charAt_01 pd = new String_charAt_01();
+		String s = "bananas";
+		
+		System.out.println(pd.solve(s));
+	}
+	
+	private int start, end;
+	
+		public String solve(String s) {
+			int len = s.length();
+			if (len < 2) return s;
+			
+			for (int i = 0; i < len-1; i++) {
+				findSubstring(s, i, i);
+				findSubstring(s, i, i+1);
+			}
+			return s.substring(start, start+end);
+		}
+		
+		public void findSubstring(String s, int left, int right) {
+			
+			while(left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+				left--;
+				right++;
+			}
+			if(end < right - left - 1) {
+				end = right - left - 1; // 6
+				start = left + 1; // 0
+			}
+		}
+}
+
+```
