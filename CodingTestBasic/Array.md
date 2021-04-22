@@ -30,3 +30,36 @@ public class ArrayTest {
 }
 ```
 ---
+> subArray + sum<br>
+> 배열값에서 각 요소를 순서대로 더했을때 k값(7) 이 나오는 횟수
+
+> 특별한 기술은 없이 그냥 반복을 돌리는 방법.
+```JAVA
+public class ArrayTest {
+
+	public static void main(String[] args) {
+		
+		int[] nums = {3, 4, 7, 2, -3, 1, 4, 2};
+		int k = 7;
+		
+		System.out.println( subarraySum(nums, k) );
+	}
+	
+	public static int subarraySum(int[] nums, int k) {
+		int count = 0;
+		
+		for (int i = 0; i < nums.length; i++) {
+			int sum = 0;
+			for (int j=i; j < nums.length; j++ ) {
+				sum = sum + nums[j];
+				// System.out.println("nums["+j+"]"+nums[j]+" sum" + sum);
+				if (sum == k) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+}
+```
+---
