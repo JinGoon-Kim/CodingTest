@@ -133,7 +133,7 @@ Array2D a = new Array2D();
 ```
 ---
 > 2차원 배열을 List로 List를 2차원 배열로<br>
-> 이것도 문제는 아니다. 배열과 리스트를 서로 바꾸는 문제<br>
+> 이것도 문제는 아니다. 배열과 리스트를 서로 바꾸는 방법<br>
 > convert 는 2차원 배열을 List 로 convert2 는 List를 2차원 배열로 바꾼다. print는 그냥 출력문.
 ```JAVA
 import java.util.*;
@@ -186,6 +186,66 @@ public class ArrayTest {
 		for (int i = 0; i < arr2.length; i++) {
 			for(int j=0; j < arr2[i].length; j++) {
 				System.out.print("a["+i+"]"+"["+j+"] " + arr2[i][j]+"\t");
+			}
+			System.out.println("");
+		}
+	}
+}
+```
+---
+> matrixZero<br>
+> 배열안에 0이 있으면 좌표(?)상 같은 x축과 y축을 가진 곳을 0으로 모두 바꾸는 문제<br>
+> HashSet을 이용한 방법이다.
+```JAVA
+import java.util.*;
+
+public class ArrayTest {
+
+	public static void main(String[] args) {
+		
+		int[][] grid = {{1, 1, 1},
+							{1, 0, 1},
+							{1, 1, 1}};
+		
+		new ArrayTest().solve(grid);
+	}
+	
+	public static void solve (int[][] grid) {
+		
+		print(grid);
+		
+		Set<Integer> rowSet = new HashSet<Integer>();
+		Set<Integer> colSet = new HashSet<Integer>();
+		
+		for (int i = 0; i < grid.length; i++) {
+			
+			for(int j=0; j < grid[i].length; j++) {
+				if(grid[i][j] == 0) {
+					System.out.print("a["+i+"]"+"["+j+"] " + grid[i][j]+"\t");
+					rowSet.add(i);
+					colSet.add(j);
+				}
+				System.out.println();
+			}
+		}
+		
+		for (int i = 0; i < grid.length; i++) {
+			
+			for(int j=0; j < grid[i].length; j++) {
+				if(rowSet.contains(i) || colSet.contains(j)) {
+					grid[i][j] = 0;
+					System.out.print("a["+i+"]"+"["+j+"] " + grid[i][j]+"\t");
+				}
+			}
+			System.out.println();
+		}
+		
+	}
+	public static void print (int[][] grid) {
+		
+		for (int i = 0; i < grid.length; i++) {
+			for(int j=0; j < grid[i].length; j++) {
+				System.out.print("a["+i+"]"+"["+j+"] " + grid[i][j]+"\t");
 			}
 			System.out.println("");
 		}
