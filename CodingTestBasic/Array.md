@@ -63,3 +63,44 @@ public class ArrayTest {
 }
 ```
 ---
+> subArray + Map<br>
+> 배열값에서 각 요소를 순서대로 더했을때 k값(7) 이 나오는 횟수
+
+> 위와 동일한 문제를 Map 를 통해 풀어보는 방법
+```JAVA
+import java.util.HashMap;
+import java.util.Map;
+
+public class ArrayTest {
+
+	public static void main(String[] args) {
+		
+		int[] nums = {3, 4, 7, 2, -3, 1, 4, 2};
+		int k = 7;
+		
+		System.out.println( subarraySum(nums, k) );
+	}
+	
+	public static int subarraySum(int[] nums, int k) {
+		
+		int count = 0;
+		
+		Map<Integer, Integer> map = new HashMap<>();
+		map.put(0, 1);
+		int sum = 0;
+		
+		for (int i = 0; i < nums.length; i++) {
+			sum += nums[i];
+			
+			if (map.containsKey(sum-k)) {
+				count += map.get(sum-k);
+			}
+			
+			map.put(sum, map.getOrDefault(sum, 0) + 1);
+		}
+		
+		return count;
+	}
+}
+```
+---
