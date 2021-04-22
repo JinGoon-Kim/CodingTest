@@ -104,3 +104,31 @@ public class ArrayTest {
 }
 ```
 ---
+> 2차원 배열의 기본 선언 방법<br>
+> 문제가 아니라 실제로 동작하지는 않는다. 2차원배열의 기본 선언방법.
+> 1번처럼 그냥 넣을수도, 2번처럼 각 2차원배열의 열(?)의 크기를 변경할수도 있다. 3번은 그냥 평범하게 사용하는 선언.
+```JAVA
+Array2D a = new Array2D();
+		
+		int[][] grid = new int[3][4];
+		System.out.println("===1번===");
+		a.print(grid);
+		grid[0][1] = 10;
+		System.out.println("after");
+		a.print(grid);
+		
+		int[][] grid2 = new int[3][];
+		grid2[0] = new int[1];
+		grid2[1] = new int[2];
+		grid2[2] = new int[7];
+		System.out.println("===2번===");
+		a.print(grid2);
+		
+		int[][] grid3 = {{1.2},
+				{2, 3},
+				{3, 5}};
+		System.out.println("===3번===");
+		a.print(grid3);
+		}
+```
+---
