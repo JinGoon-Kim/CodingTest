@@ -132,3 +132,64 @@ Array2D a = new Array2D();
 		}
 ```
 ---
+> 2차원 배열을 List로 List를 2차원 배열로<br>
+> 이것도 문제는 아니다. 배열과 리스트를 서로 바꾸는 문제<br>
+> convert 는 2차원 배열을 List 로 convert2 는 List를 2차원 배열로 바꾼다. print는 그냥 출력문.
+```JAVA
+import java.util.*;
+
+public class ArrayTest {
+
+	public static void main(String[] args) {
+		
+		int[][] A = {{1, 2, 3},
+							{4, 5, 6, 10, 11},
+							{7, 8, 9, 20}};
+		
+		List<List<Integer>> list = convert(A);
+		System.out.println(list);
+		
+		int[][] arr2 = convert2(list);
+		print(arr2);
+	}
+	
+	public static List<List<Integer>> convert(int[][] a) {
+		
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		
+		for (int i=0; i < a.length; i++) {
+			List<Integer> list = new ArrayList<Integer>();
+			for (int j = 0; j < a[i].length; j++) {
+				list.add(a[i][j]);
+			}
+			result.add(list);		
+		}
+		return result;
+	}
+	public static int[][] convert2(List<List<Integer>> list) {
+		// 리스트와 달리 배열은 크기를 반드시 정해야되기때문에 선언부터 해야됨.
+		int[][] result = new int[list.size()][];
+		
+		for(int i = 0; i < result.length; i++) {
+			result[i] = new int[list.get(i).size()];
+		}
+		for(int i = 0; i < list.size(); i++) {
+			
+			for(int j = 0; j < list.get(i).size(); j++) {
+				result[i][j] = list.get(i).get(j);
+			}
+		}
+		return result;
+	}
+	public static void print (int[][] arr2) {
+		
+		for (int i = 0; i < arr2.length; i++) {
+			for(int j=0; j < arr2[i].length; j++) {
+				System.out.print("a["+i+"]"+"["+j+"] " + arr2[i][j]+"\t");
+			}
+			System.out.println("");
+		}
+	}
+}
+```
+---
