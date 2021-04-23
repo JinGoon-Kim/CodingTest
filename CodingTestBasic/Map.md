@@ -81,3 +81,48 @@ public class MapTest {
 }
 ```
 ---
+> map 과 array<br>
+> 배열에서 반복되는 숫자중에서 가장 빈도수가 높은 숫자를 k개 만큼 가져오는 문제.
+```JAVA
+import java.util.*;
+
+public class MapTest {
+
+	public static void main(String[] args) {
+		
+		int[] nums = {1, 1, 2, 2, 2, 3, 5, 5, 5, 5};
+		int k = 2;
+		
+		System.out.println(new MapTest().topFrequent(nums, k));
+		
+	}
+
+	private static List<Integer> topFrequent(int[] nums, int k) {
+		
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		List<Integer>[] list = new List[nums.length+1];
+		List<Integer> result = new ArrayList<Integer>();
+		
+		for (int num : nums) {
+			map.put(num, map.getOrDefault(num, 0) + 1);
+		}
+		
+		for(int key : map.keySet()) {
+			int topFrequent = map.get(key);
+			if(list[topFrequent] == null ) {
+				list[topFrequent] = new ArrayList<Integer>();
+			}
+			list[topFrequent].add(key);
+		}
+		for(int lastIndex = list.length - 1; lastIndex >= 0; lastIndex--) {
+			if (list[lastIndex] != null) {
+				for (int i = 0; i < list[lastIndex].size() && result.size() < k; i++) {
+					result.add( list[lastIndex].get(i) );
+				}
+			}
+		}
+		return result;
+	}
+}
+```
+---
