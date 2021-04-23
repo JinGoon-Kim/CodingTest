@@ -38,3 +38,46 @@ public class MapTest {
 }
 ```
 ---
+> map.put( ch, map.getOrDefault(a, b) ) 의 사용<br>
+> map 에서 ch 의 값이 있을때는 a 값을 없을때는 b 값을 가져오는 방식으로 사용하는 getOrDefault 를 사용하여 String s 에서 가장 첫번째로 나오는 중복없는 문자를 가져오는 문제이다.
+```JAVA
+import java.util.*;
+
+public class MapTest {
+
+	public static void main(String[] args) {
+		
+		String s = "programmerspro";
+		System.out.println(solve(s));
+		
+	}
+
+	private static int solve(String s) {
+		
+		if (s == null || s.length() == 0) return -1;
+		
+		Map<Character, Integer> map = new HashMap<Character, Integer>();
+		
+		for(char ch : s.toCharArray()) {
+			// String s = "inflearninlove";
+			/*
+			if ( !map.containsKey(ch) ) {
+				map.put(ch, 1);
+			}else {
+				map.put(ch, map.get(ch) + 1);
+			}
+			*/
+			map.put(ch, ,map.getOrDefault(ch, 0) + 1);
+			
+		}
+		
+		for( int i = 0; i < s.length(); i++) {
+			if (map.get(s.charAt(i)) == 1) {
+				return i;
+			}
+		}
+		return -1;
+	}
+}
+```
+---
