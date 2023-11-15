@@ -6,9 +6,9 @@
 > 코딩테스트 첫번째 문제. 처음이라 양식을 적용하는데 애먹었다.
 ```JAVA
 public class Main {
-	public static void main(String[] args) {
-		System.out.println("Hello World!");
-	}
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
 }
 ```
 ---
@@ -18,13 +18,13 @@ public class Main {
 > 문제번호 10718, 10171 는 현재 문제와 비슷하여 생략했다.
 ```JAVA
 public class Main {
-	public static void main(String[] args) {
-		System.out.println("|\\_/|");
+    public static void main(String[] args) {
+        System.out.println("|\\_/|");
         System.out.println("|q p|   /}");
         System.out.println("( 0 )\"\"\"\\");
         System.out.println("|\"^\"`    |");
         System.out.println("||_/=\\\\__|");
-	}
+    }
 }
 ```
 ---
@@ -36,13 +36,13 @@ public class Main {
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-		int n1 = sc.nextInt();
+        int n1 = sc.nextInt();
         int n2 = sc.nextInt();
         int a = n1 + n2;
         System.out.println(a);
-	}
+    }
 }
 ```
 ---
@@ -54,23 +54,23 @@ public class Main {
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
-		int n1 = sc.nextInt();
+
+        int n1 = sc.nextInt();
         int n2 = sc.nextInt();
-        
+
         int a = (n2 % 10)*n1;
         int b = ( (n2/10) % 10 )*n1;
         int c = ( (n2/100 )% 10)*n1;
-      
+
         int tot = n1*n2;
-        
+
         System.out.println(a);
         System.out.println(b);
         System.out.println(c);
         System.out.println(tot);
-	}
+    }
 }
 ```
 ---
@@ -84,6 +84,22 @@ int main() {
 
     std::cin >> input;
     std::cout << input+"??!" << std::endl;
+    return 0;
+}
+```
+---
+>[문제번호 18108. 1998년생인 내가 태국에서는 2541년생?!](https://www.acmicpc.net/problem/18108)   
+> 그냥 C++ 로 코테 풀어볼려고 테스트해본 문제.
+```cpp
+#include <iostream>
+
+int main() {
+    int input;
+
+    std::cin >> input;
+    int result = 0;
+    // 불기와 서기의 차이는 543년..
+    std::cout << input - 543 << std::endl;
     return 0;
 }
 ```
